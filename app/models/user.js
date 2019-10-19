@@ -4,7 +4,10 @@ module.exports = (sequelize, DataTypes) => {
       last_name: DataTypes.STRING,
       points: DataTypes.INTEGER,
       level: DataTypes.INTEGER,
-      email: DataTypes.STRING,
+      email: {
+          type: DataTypes.STRING,
+          unique: true
+        },
       password: DataTypes.STRING,
     });
   

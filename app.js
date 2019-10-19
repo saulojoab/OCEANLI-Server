@@ -3,6 +3,9 @@ const app = express();
 const cors = require('cors')
 const morgan = require('morgan');
 
+// ROUTES.
+const userRoutes = require('./app/routes/users');
+
 // Body parser.
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
@@ -12,6 +15,9 @@ app.use(morgan('dev'));
 
 // Handling CORS to all requisitions.
 app.use(cors());
+
+// Assigning routes.
+app.use('/users', userRoutes);
 
 // 404 error.
 app.use((req, res, next) => {

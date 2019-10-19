@@ -1,5 +1,3 @@
-import DatabaseCredentials from './../credentials.json'
+const credentials = require('../credentials.js');
 
-module.exports = {
-  DatabaseCredentials
-}
+module.exports = credentials;
