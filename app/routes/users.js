@@ -6,13 +6,14 @@ const { User } = require('./../models');
 
 router.get('/', async (req, res) => { // List
     const users = await User.findAll({attributes: ['id', 'first_name', 'last_name', 'email', 'points', 'level']});
-    res.status(STATUS.OK).json({msg: 'Got all users', data: users});
+    res.status(STATUS.OK).json({msg: 'Got all users', users});
 });
 
 
 router.post('/', async (req, res) => { // Create
     bcrypt.hash(req.body.password, 10, (err, hash) => {
-        if (err){
+        if (err)
+        {
             res.status(STATUS.INTERNAL_SERVER_ERROR).json({msg: 'Something went wrong while encrypting the password'});
         }
 

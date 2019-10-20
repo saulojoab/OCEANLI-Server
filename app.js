@@ -5,6 +5,7 @@ const morgan = require('morgan');
 
 // ROUTES.
 const userRoutes = require('./app/routes/users');
+const photoRoutes = require('./app/routes/photos');
 
 // Body parser.
 app.use(express.urlencoded({extended: false}));
@@ -18,6 +19,7 @@ app.use(cors());
 
 // Assigning routes.
 app.use('/users', userRoutes);
+app.use('/photos', photoRoutes);
 
 // 404 error.
 app.use((req, res, next) => {

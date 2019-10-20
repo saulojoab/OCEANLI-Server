@@ -11,5 +11,9 @@ module.exports = (sequelize, DataTypes) => {
       password: DataTypes.STRING,
     });
   
+    User.associate = (models) => {
+        User.hasMany(models.Photo, {as: 'photo'})
+    }
+
     return User;
 }
